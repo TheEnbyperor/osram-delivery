@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'react-mdl/extra/material.js';
+import {Snackbar} from 'react-mdl';
 import firebase from 'firebase';
 import 'react-mdl/extra/material.css';
 import Login from "./Login";
