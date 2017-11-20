@@ -20,6 +20,51 @@ export const auth = firebase.auth();
 export const database = firebase.database();
 export const messaging = firebase.messaging();
 
+class LocationUpdater extends Component {
+  constructor(props) {
+      super(props);
+      this.onFix = props.onFix;
+      this.lostFix = props.lostFix;
+      this.fix = null;
+      this.authed = false;
+      this.uid = 0;
+  }
+
+  componentDidMount() {
+      auth.onAuthStateChanged((user) => {
+          this.authed = !!user;
+          if (user) {
+              this.uid = user.uid;
+          }
+      });
+      this.watchId = navigator.geolocation.watchPosition((fix) => {
+          this.fix = fix;
+          if (this.authed) {
+              database.ref('locations/' + this.uid).set({
+                  coords: {
+                      lat: fix.coords.latitude,
+                      lng: fix.coords.longitude
+                  },
+                  timestamp: fix.timestamp
+              });
+          }
+      }, () => {
+          this.fix = null;
+      }, {
+          enableHighAccuracy: true,
+          maximumAge: 0
+      });
+  }
+
+  componentWillUnmount() {
+      navigator.geolocation.clearWatch(this.watchId)
+  }
+
+  render() {
+      return null;
+  }
+}
+
 class App extends Component {
   uid = 0;
   state = {
@@ -96,7 +141,8 @@ class App extends Component {
       }
 
       return (
-          <div className="App">
+        <div className="App">
+            <LocationUpdater/>
               {main}
               <Snackbar
                   ref="snackbar"
