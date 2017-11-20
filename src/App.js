@@ -4,6 +4,7 @@ import {Snackbar} from 'react-mdl';
 import firebase from 'firebase';
 import 'react-mdl/extra/material.css';
 import Login from "./Login";
+import Deliveries from "./Deliveries";
 import './App.css';
 
 // Initialize Firebase
@@ -135,7 +136,7 @@ class App extends Component {
   render() {
       let main = null;
       if (this.state.signedIn) {
-          main = (null);
+          main = <Deliveries/>;
       } else {
           main = <Login/>;
       }
