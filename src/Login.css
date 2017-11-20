@@ -11,14 +11,14 @@
 
 .Login-inner {
     position: absolute;
-    top: 10%;
-    bottom: 10%;
-    left: 10%;
-    right: 10%;
+    top: 7%;
+    bottom: 7%;
+    left: 7%;
+    right: 7%;
     background: linear-gradient(135deg, #72cc28 0%,#19c1d1 100%);
     color: #fff;
     box-shadow: #000 0 0 10px;
-    padding: 20px;
+    padding: 10px 20px;
 }
 
 .Login h1, .Login h2 {

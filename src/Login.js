@@ -73,7 +73,7 @@ export default class Login extends Component {
             <div className="Login">
                 <div className="Login-inner">
                     <h1>Bon app a ti</h1>
-                    <h2>For stalls</h2>
+                    <h2>For deliveries</h2>
                     {main}
                 </div>
             </div>
