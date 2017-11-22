@@ -30,7 +30,7 @@ export default class Deliveries extends Component {
             deliveries.push(<p>{id}</p>)
         });
         return (
-            <div className = "Stalls" >
+            <div className="Deliveries">
                 <h2>Deliveries</h2>
                 {deliveries}
             </div>
