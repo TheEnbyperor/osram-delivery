@@ -13,3 +13,12 @@
     text-align: center;
     margin: 0 0 10px;
 }
+.Deliveries .Delivery {
+    margin: 0 0 10px;
+}
+.Deliveries .Delivery .mdl-card {
+    margin: 0 auto;
+}
+.Deliveries .Delivery .mdl-card__supporting-text {
+    width: 100%;
+}
